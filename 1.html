@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="王奕栋 | 视觉设计师 & 文创设计师 个人网站">
+    <title>王奕栋 | 视觉设计师·文创设计师</title>
+    <!-- Google Fonts + Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefefe;
+            color: #1a1a1a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c0c0c0;
+            border-radius: 12px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(254, 254, 254, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #000, #3b3b3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            color: #2c2c2c;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #a855f7;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: #d4d4d4;
+            color: #1f1f1f;
+        }
+        .btn-outline:hover {
+            background: #000;
+            color: white;
+            border-color: #000;
+        }
+        .btn-primary {
+            background: #000;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #2b2b2b;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px -12px rgba(0,0,0,0.2);
+        }
+
+        .hero {
+            padding: 80px 0 100px 0;
+        }
+        .hero-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: center;
+            text-align: center;
+        }
+        .hero-badge {
+            background: #f3e8ff;
+            color: #7e22ce;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .hero h1 span {
+            background: linear-gradient(120deg, #a855f7, #4f46e5);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 1rem auto 1.8rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .section-sub {
+            text-align: center;
+            color: #6b7280;
+            max-width: 620px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.1rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        .portfolio-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.05);
+            transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -14px rgba(0, 0, 0, 0.15);
+        }
+        .card-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        .img-1 { background: linear-gradient(145deg, #f97316, #facc15); }
+        .img-2 { background: linear-gradient(135deg, #3b82f6, #a855f7); }
+        .img-3 { background: linear-gradient(120deg, #ec489a, #f43f5e); }
+        .img-4 { background: linear-gradient(145deg, #10b981, #34d399); }
+        .img-5 { background: linear-gradient(120deg, #6366f1, #8b5cf6); }
+        .img-6 { background: linear-gradient(145deg, #f59e0b, #fcd34d); }
+        .card-img i {
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 70px;
+            font-size: 2.8rem;
+            color: #1b1b1b;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        .portfolio-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.2rem 1.2rem 0.4rem;
+        }
+        .portfolio-card p {
+            color: #6c757d;
+            margin: 0 1.2rem 1.2rem;
+            font-size: 0.9rem;
+        }
+        .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            border-radius: 40px;
+            margin: 0 1.2rem 1.2rem;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .about-text p {
+            font-size: 1.05rem;
+            color: #2c3e44;
+            margin-bottom: 1.5rem;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 1.8rem 0 1rem;
+        }
+        .skills span {
+            background: #f3f4f6;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .about-avatar {
+            background: linear-gradient(145deg, #f7f0ff, #ede9fe);
+            border-radius: 48px;
+            padding: 2rem;
+            text-align: center;
+        }
+        .avatar-icon {
+            font-size: 5.5rem;
+            color: #4f46e5;
+            background: rgba(255,255,240,0.7);
+            width: 160px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            border-radius: 50%;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+        .about-avatar h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.02);
+            border: 1px solid #efefef;
+        }
+        .contact-info h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .contact-detail {
+            margin: 2rem 0;
+        }
+        .contact-detail p {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .social-links a {
+            background: #f7f7f7;
+            width: 44px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            color: #1f2937;
+            transition: all 0.2s;
+            font-size: 1.3rem;
+        }
+        .social-links a:hover {
+            background: #000;
+            color: white;
+        }
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 40px;
+            border: 1px solid #e2e2e2;
+            font-family: 'Inter', sans-serif;
+            background: #fefefe;
+            outline: none;
+        }
+        textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+        input:focus, textarea:focus {
+            border-color: #8b5cf6;
+            box-shadow: 0 0 0 3px rgba(139,92,246,0.1);
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            background: #000;
+            color: white;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: #fafafa;
+            padding: 40px 0;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.85rem;
+            border-top: 1px solid #eaeaea;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 模态框 - 大篇幅作品展示区 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 85vh;
+            border-radius: 32px;
+            position: relative;
+            animation: fadeInUp 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .close-modal {
+            position: sticky;
+            top: 16px;
+            right: 24px;
+            float: right;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 20;
+            background: white;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+            margin: 16px 16px 0 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .close-modal:hover {
+            color: #a855f7;
+        }
+        .modal-body {
+            padding: 0 2rem 2rem 2rem;
+            clear: both;
+        }
+        /* 大篇幅画廊区域 - 横向滚动展示 */
+        .gallery-scroll {
+            margin: 1.5rem 0 2rem 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+            border-radius: 24px;
+            background: #f9f9f9;
+            padding: 16px;
+        }
+        .gallery-track {
+            display: inline-flex;
+            gap: 20px;
+        }
+        .gallery-item {
+            width: 280px;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: flex-end;
+            justify-content: center;
+            background-color: #eaeaea;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        .gallery-item span {
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            backdrop-filter: blur(4px);
+        }
+        .modal-info {
+            margin-top: 1rem;
+        }
+        .modal-info h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .full-description {
+            margin-top: 1.5rem;
+            background: #f7f7f9;
+            padding: 1.5rem;
+            border-radius: 24px;
+            line-height: 1.6;
+        }
+        @media (max-width: 700px) {
+            .modal-body {
+                padding: 0 1rem 1rem 1rem;
+            }
+            .gallery-item {
+                width: 200px;
+                height: 200px;
+            }
+            .modal-info h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .container { padding: 0 24px; }
+            section { padding: 70px 0; }
+            .hero h1 { font-size: 2.8rem; }
+            .about-grid, .contact-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2rem; }
+            .navbar .nav-container { flex-direction: column; }
+        }
+        @media (max-width: 550px) {
+            .hero h1 { font-size: 2.2rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">WANG YIDONG</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#portfolio">作品</a></li>
+                <li><a href="#about">关于</a></li>
+                <li><a href="#contact">联系</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-grid fade-up">
+                <div class="hero-badge"><i class="fas fa-sparkle"></i> 视觉设计师 · 文创创作者</div>
+                <h1>用设计连接文化与 <span>日常叙事</span></h1>
+                <p>我是王奕栋 — 专注于视觉识别、文创产品与品牌体验，现工作于沈阳 & 北京，持续探索有温度的设计表达。</p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary"><i class="fas fa-arrow-down"></i> 查看作品</a>
+                    <a href="#contact" class="btn btn-outline"><i class="far fa-comment"></i> 合作聊聊</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <div class="section-title fade-up">精选项目</div>
+                <div class="section-sub fade-up">点击卡片，进入大篇幅作品展示 — 浏览完整创作过程与多图细节</div>
+                <div class="portfolio-grid">
+                    <!-- 6个项目卡片，data索引用于展示详情 -->
+                    <div class="portfolio-card fade-up" data-index="0">
+                        <div class="card-img img-1"><i class="fas fa-palette"></i></div>
+                        <h3>山集 · 茶品牌重塑</h3>
+                        <p>东方美学 × 文创包装，传统茶饮的年轻化视觉系统。</p>
+                        <span class="tag">品牌设计</span>
+                    </div>
+                    <div class="portfolio-card fade-up" data-index="1">
+                        <div class="card-img img-2"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>流明 · 艺术APP</h3>
+                        <p>沉浸式交互体验，为数字画廊打造的视觉界面。</p>
+                        <span class="tag">UI/UX</span>
+                    </div>
+                    <div class="portfolio-card fade-up" data-index="2">
+                        <div class="card-img img-3"><i class="fas fa-drawing"></i></div>
+                        <h3>回响 · 动态图形</h3>
+                        <p>音乐节主视觉与装置艺术，声波视觉化实验。</p>
+                        <span class="tag">动态设计</span>
+                    </div>
+                    <div class="portfolio-card fade-up" data-index="3">
+                        <div class="card-img img-4"><i class="fas fa-building"></i></div>
+                        <h3>北方文创集</h3>
+                        <p>沈阳故宫联名文创系列，地域文化再造计划。</p>
+                        <span class="tag">文创设计</span>
+                    </div>
+                    <div class="portfolio-card fade-up" data-index="4">
+                        <div class="card-img img-5"><i class="fas fa-chart-line"></i></div>
+                        <h3>蓝屿 · 数据平台</h3>
+                        <p>可视化大屏与复杂数据界面，平衡美感与功能。</p>
+                        <span class="tag">数据UI</span>
+                    </div>
+                    <div class="portfolio-card fade-up" data-index="5">
+                        <div class="card-img img-6"><i class="fas fa-tshirt"></i></div>
+                        <h3>UNDEFINED 胶囊</h3>
+                        <p>Z世代文化语境，服装视觉与周边文创设计。</p>
+                        <span class="tag">时尚视觉</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container about-grid">
+                <div class="about-text fade-up">
+                    <div class="section-title" style="text-align: left;">关于我</div>
+                    <p>王奕栋，视觉设计师与文创产品创作者，现居沈阳 / 北京。擅长从文化语境中提炼视觉符号，为品牌与公众带来独特的情感体验。多年来与国内多家文博机构、独立出版社合作，参与设计多项文创爆款。</p>
+                    <p>作品曾获中国设计红星奖、靳埭强设计奖等。相信设计是连接传统与未来的媒介，希望以视觉叙事为方法，持续创造打动人心的作品。</p>
+                    <div class="skills">
+                        <span>品牌识别</span><span>文创开发</span><span>UI/UX</span><span>字体排印</span><span>插画</span><span>包装设计</span>
+                    </div>
+                    <a href="#contact" class="btn btn-outline"><i class="far fa-envelope"></i> 工作联系</a>
+                </div>
+                <div class="about-avatar fade-up">
+                    <div class="avatar-icon"><i class="fas fa-feather-alt"></i></div>
+                    <h3>王奕栋 | Wang Yidong</h3>
+                    <p>视觉设计师 & 文创设计师</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 沈阳 · 北京</p>
+                    <div class="social-links" style="justify-content: center;">
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <div class="section-title fade-up">开始对话</div>
+                <div class="section-sub fade-up">文创项目 · 品牌合作 · 设计交流，欢迎留言</div>
+                <div class="contact-grid fade-up">
+                    <div class="contact-info">
+                        <h3>Let's create ✦</h3>
+                        <p>新项目、设计委托，或仅仅打个招呼，我会很快回复。</p>
+                        <div class="contact-detail">
+                            <p><i class="far fa-envelope"></i> wangyidong@design.cn</p>
+                            <p><i class="fas fa-phone-alt"></i> +86 155 1234 5678</p>
+                            <p><i class="far fa-clock"></i> 周一至周五 10:00 - 18:30</p>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-behance"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <form id="contactForm">
+                            <div class="form-group"><input type="text" id="name" placeholder="你的姓名" required></div>
+                            <div class="form-group"><input type="email" id="email" placeholder="电子邮箱" required></div>
+                            <div class="form-group"><textarea rows="4" id="message" placeholder="项目想法或合作意向..." required></textarea></div>
+                            <button type="submit">发送信息 <i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 模态框：大篇幅作品展示区 包含横向滚动画廊 -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <!-- 大幅图片画廊区（横向滚动） -->
+                <div class="gallery-scroll">
+                    <div class="gallery-track" id="modalGallery"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalDesc"></p>
+                    <span id="modalTag" class="tag"></span>
+                    <div class="full-description" id="modalFullDesc">
+                        详细设计思路、过程草图与完整项目介绍会在这里展示。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 王奕栋 · 视觉与文创设计 | 沈阳 · 北京</p>
+        </div>
+    </footer>
+
+    <script>
+        // 滚动动画
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        fadeElements.forEach(el => observer.observe(el));
+        window.addEventListener('load', () => {
+            fadeElements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('visible');
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (!targetId || targetId === "#") return;
+                document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        document.querySelector('.hero-buttons .btn-primary')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' });
+        });
+        document.querySelector('.hero-buttons .btn-outline')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+        });
+        document.querySelector('.about-text .btn-outline')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // 表单
+        const form = document.getElementById('contactForm');
+        form?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            if (!name || !email || !document.getElementById('message').value.trim()) {
+                alert("请完整填写信息～");
+                return;
+            }
+            if (!email.includes('@')) { alert("邮箱格式有误"); return; }
+            alert(`感谢联系，${name}！ 我会尽快回复。`);
+            form.reset();
+        });
+
+        // ---------- 作品数据 (包含多图展示 大篇幅内容) ----------
+        const projectsData = [
+            {
+                title: "山集 · 茶品牌重塑",
+                desc: "极简东方美学 × 包装系统设计，重新定义传统茶饮的年轻化语境。",
+                tag: "品牌设计",
+                fullDesc: "山集项目历时6个月，从品牌命名、字体定制到陶瓷罐包装结构设计，深度挖掘徽州茶文化。文创周边开发包括茶席、手帐等，让传统焕发新生。多图展示完整视觉体系。",
+                gallery: ["#f97316","#facc15","#ffb347","#fd7e14"] // 渐变色模拟图片，实际可替换为真实图片url
+            },
+            {
+                title: "流明 · 艺术APP",
+                desc: "沉浸式交互UI/UX，为数字画廊打造流畅的观赏及购买旅程。",
+                tag: "移动端UI",
+                fullDesc: "提供沉浸式云展览体验，支持AR挂画功能。设计系统覆盖数百个组件，与开发团队紧密协作落地。以下展示设计稿、交互原型与高保真界面。",
+                gallery: ["#3b82f6","#a855f7","#8b5cf6","#6366f1"]
+            },
+            {
+                title: "回响 · 动态图形",
+                desc: "声波视觉化实验，音乐节主视觉与装置艺术跨界合作。",
+                tag: "动态设计",
+                fullDesc: "使用TouchDesigner实时生成音频反应图像，打造沉浸式现场。作品展出在上海、北京等地，动态海报与视频片段见下方展示。",
+                gallery: ["#ec489a","#f43f5e","#fb7185","#fda4af"]
+            },
+            {
+                title: "北方文创集",
+                desc: "沈阳故宫联名文创系列，地域文化再造计划。",
+                tag: "文创设计",
+                fullDesc: "以沈阳故宫建筑元素与满族文化为灵感，设计出「大政殿」立体便签、八旗主题文具礼盒等。产品已落地并获2024年辽宁省文创金奖。多角度看创意草图与成品。",
+                gallery: ["#10b981","#34d399","#6ee7b7","#a7f3d0"]
+            },
+            {
+                title: "蓝屿 · 数据平台",
+                desc: "复杂数据可视化设计，平衡专业度与清晰体验。",
+                tag: "数据UI",
+                fullDesc: "为金融客户打造的企业级数据驾驶舱。交互设计让用户3秒定位关键指标，设计系统涵盖暗色/亮色双主题。下方为大屏展示及组件演示。",
+                gallery: ["#6366f1","#8b5cf6","#c4b5fd","#a78bfa"]
+            },
+            {
+                title: "UNDEFINED 胶囊",
+                desc: "时尚品牌视觉企划及印刷品设计，Z世代文化语境探索。",
+                tag: "时尚视觉",
+                fullDesc: "包含胶囊系列Lookbook拍摄、动态主视觉、线下快闪店设计。与年轻艺术家联名，传递独立不羁的态度。多图展示印花细节与空间装置。",
+                gallery: ["#f59e0b","#fcd34d","#fbbf24","#fde68a"]
+            }
+        ];
+
+        // 为每个卡片生成虚拟图片数组 (由于无真实图片，使用渐变色div展示；可替换成实际图片链接)
+        function getGalleryItems(colors) {
+            return colors.map((color, idx) => {
+                // 如果是渐变色，可转为内联样式背景。为了展示“大篇幅作品展示”，用纯色+文字说明
+                const textLabel = `作品图 ${idx+1}`;
+                return `<div class="gallery-item" style="background: ${color}; display: inline-flex; align-items: flex-end; justify-content: center;"><span>${textLabel}<br>点击可查看大图示意</span></div>`;
+            }).join('');
+        }
+
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalTag = document.getElementById('modalTag');
+        const modalFullDesc = document.getElementById('modalFullDesc');
+        const modalGallery = document.getElementById('modalGallery');
+        const closeBtn = document.querySelector('.close-modal');
+
+        const cards = document.querySelectorAll('.portfolio-card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const idx = card.getAttribute('data-index');
+                const data = projectsData[idx];
+                if (data) {
+                    modalTitle.innerText = data.title;
+                    modalDesc.innerText = data.desc;
+                    modalTag.innerText = data.tag;
+                    modalFullDesc.innerText = data.fullDesc;
+                    // 生成多图画廊 (大篇幅可横向滚动浏览)
+                    modalGallery.innerHTML = getGalleryItems(data.gallery);
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'flex') closeModal(); });
+        
+        // 导航高亮简单处理
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        function updateActiveLink() {
+            let current = '';
+            const scrollPos = window.scrollY + 120;
+            sections.forEach(section => {
+                const top = section.offsetTop, height = section.clientHeight;
+                if (scrollPos >= top && scrollPos < top + height) current = section.getAttribute('id');
+            });
+            navLinks.forEach(link => {
+                link.style.color = '#2c2c2c';
+                if (link.getAttribute('href') === `#${current}`) link.style.color = '#a855f7';
+            });
+        }
+        window.addEventListener('scroll', updateActiveLink);
+        updateActiveLink();
+    </script>
+</body>
+</html>
